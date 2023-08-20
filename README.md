@@ -2,6 +2,14 @@
 
 Graphql operations
 
+
+## Docker
+docker compose -up -d
+
+## Graphql
+http://localhost:8084/graphql
+
+## DB
 Create table scripts
 
 ```

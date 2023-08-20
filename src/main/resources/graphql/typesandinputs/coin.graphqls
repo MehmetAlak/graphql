@@ -1,0 +1,36 @@
+type Coin {
+    id: CoinId
+    user: User
+}
+
+type CoinId {
+  name: String
+  userId: Int
+}
+
+input CoinInput {
+    name: String
+    user: UserInput
+    userId: Int
+}
+
+extend type Query {
+    coinByName(name: String): Coin
+    allCoins:[Coin!]
+}
+
+extend type Mutation {
+    createCoin(input: CoinInput): Coin
+}
+
+
+type CoinPrice {
+    name: String
+    price: String
+    timestamp: Date
+}
+
+extend type Subscription {
+    coinPrice(name: String): CoinPrice
+}
+

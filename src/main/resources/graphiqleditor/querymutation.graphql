@@ -1,0 +1,78 @@
+# Get User
+query GET_USER($email: String = "mehmet.alak@gmail.com") {
+    userByEmail(email: $email){
+        id
+        firstName
+    }
+}
+
+# All User
+query GET_ALLUSER {
+    allUser {
+        id
+        firstName
+        lastName
+    }
+}
+
+
+# Get All User
+query GET_USER_ALL_USER($email: String="mehmet.alak@gmail.com",  $withCoins: Boolean =true ) {
+    userByEmail(email: $email){
+        id
+        firstName
+        coins @include(if: $withCoins){
+            id{
+              name
+              userId
+            }
+        }
+    }
+
+    allUser{
+        id
+        firstName
+        lastName
+    }
+}
+
+# Create User
+mutation CREATE_USER {
+    createUser(input: {firstName: "Mehmet" lastName: "ALAK" email: "mehmet.alak@gmail.com" }){
+        id
+        firstName
+        lastName
+        email
+    }
+}
+
+#Get Coin
+query GET_COIN($coinName: String ="AVAX") {
+    coinByName(name: $coinName){
+        id {
+          name
+          userId
+        }
+    }
+
+    allCoins{
+        id {
+          name
+          userId
+        }
+    }
+}
+
+# Create Coin
+mutation CREATE_COIN {
+    createCoin(input: {name: "AVAX" userId: 1}){
+        id{
+          name
+          userId
+        }
+    }
+}
+
+
+
+

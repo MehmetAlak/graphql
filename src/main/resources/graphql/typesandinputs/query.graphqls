@@ -1,0 +1,14 @@
+
+type Query {
+}
+
+
+type CoinPrice {
+    name: String
+    price: String
+    timestamp: Date
+}
+
+type Subscription {
+    coinPrice(name: String): CoinPrice
+}

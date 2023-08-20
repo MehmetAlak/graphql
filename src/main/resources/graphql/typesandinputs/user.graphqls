@@ -1,0 +1,27 @@
+scalar Date
+
+type User{
+    id: ID!
+    firstName: String
+    lastName: String
+    email: String
+    coins: [Coin!]
+    birthDate: Date
+}
+
+input UserInput{
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    coins:[CoinInput]
+}
+
+extend type Query {
+    allUser: [User!]
+    userByEmail(email:String): User
+}
+
+extend type Mutation {
+    createUser(input: UserInput):User
+}

@@ -1,0 +1,44 @@
+server:
+  port: 8084
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coindb
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+
+
+ #graphql
+graphql:
+  servlet:
+    maxQueryDepth: 100
+    exception-handlers-enabled: true
+    tracingEnabled: false
+  graphiql:
+    mapping: /graphiql
+    endpoint:
+      graphql: /graphql
+      subscriptions: /subscriptions
+    basePath: /
+    enabled: true
+    pageTitle: GraphiQL
+    cdn:
+      enabled: false
+      version: latest
+    props:
+      variables:
+        editorTheme: "solarized light"
+        default-query: graphiqleditor/querymutation.graphql
+        query: graphiqleditor/querymutation.graphql
+        variables: graphiqleditor/variables.json
+
+
+
